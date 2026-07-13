@@ -52,21 +52,68 @@ teamwork, and sportsmanship.THUNDER STRIKERS TANGPAWA is a proud and passionate 
 
 <hr>
 
-<button onclick="toggleContact()">Contact</button>
-<div id="contactInfo" style="display:none;">
-  <h3>Contact</h3>
-  <p>Team: Thunder Strikers Tangpawa</p>
-  <p>Captain: Zeeshan Qadir</p>
-  <p>Phone: +91XXXXXXXXXX</p>
-  <p>Email: thunderstrikers@gmail.com</p>
-</div>
-
 <h2>🏆 Never Give Up</h2>
 <p>Play with Passion. Win with Respect.</p>
 
 <h2>📢 Latest News</h2>
 <p>Our next match details will be announced soon.</p>
 <p>Welcome to the official website of Thunder Strikers Tangpawa.</p>
+<hr>
+
+<h2>📝 Player Registration</h2>
+
+<form onsubmit="registerPlayer(event)">
+  <input type="text" id="name" placeholder="Full Name" required>
+
+<input type="number" id="age" placeholder="Age" required>
+
+<input type="tel" id="mobile" placeholder="Mobile Number" required>
+
+<select id="role" required>
+    <option value="">Select Playing Role</option>
+    <option>Batsman</option>
+    <option>Bowler</option>
+    <option>All-Rounder</option>
+    <option>Wicket Keeper</option>
+  </select><br><br>
+
+  <button type="submit">Register</button>
+</form>
+<script>
+function registerPlayer(event) {
+    event.preventDefault();
+
+    var name = document.getElementById("name").value;
+    var age = document.getElementById("age").value;
+    var mobile = document.getElementById("mobile").value;
+    var role = document.getElementById("role").value;
+
+    var table = document.getElementById("playerTable");
+    var row = table.insertRow(-1);
+
+    row.insertCell(0).innerHTML = name;
+    row.insertCell(1).innerHTML = age;
+    row.insertCell(2).innerHTML = mobile;
+    row.insertCell(3).innerHTML = role;
+
+    alert("✅ Player Registration Successful!");
+
+    event.target.reset();
+}
+</script>
+
+<h2>🏏 Registered Players</h2>
+
+<table border="1" width="100%" id="playerTable">
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Mobile</th>
+    <th>Role</th>
+  </tr>
+</table>
+
+<br>
 
 <h2>⭐ Follow Us</h2>
 <p>Instagram: @thunder_strikers_tangpawa</p>
@@ -88,7 +135,6 @@ function togglePlayers() {
     x.style.display = "none";
   }
 }
-
 function toggleContact() {
     var x = document.getElementById("contactInfo");
 
